@@ -55,6 +55,7 @@ interface Props {
     right?: number
   }
   shouldGetAccessToken?: boolean
+  isDisabled?: boolean
   renderButton?(): ReactNode
   renderClose?(): ReactNode
   onOpen?(): void
@@ -307,9 +308,18 @@ export default class LinkedInModal extends React.Component<Props, State> {
     })
 
   renderButton = () => {
-    const { renderButton, linkText, areaTouchText } = this.props
+    const { renderButton, linkText, areaTouchText, isDisabled = false } = this.props
     if (renderButton) {
-      return renderButton()
+      return(
+        <TouchableOpacity  
+        accessibilityComponentType={'button'}
+        accessibilityTraits={['button']}
+        onPress={this.open}
+        hitSlop={areaTouchText} 
+        disabled={isDisabled}>
+          {renderButton()}
+        </TouchableOpacity>
+      )
     }
     return (
       <TouchableOpacity
@@ -317,6 +327,7 @@ export default class LinkedInModal extends React.Component<Props, State> {
         accessibilityTraits={['button']}
         onPress={this.open}
         hitSlop={areaTouchText}
+        disabled={isDisabled}
       >
         <Text>{linkText}</Text>
       </TouchableOpacity>
