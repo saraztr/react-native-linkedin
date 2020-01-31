@@ -32,7 +32,7 @@
     "query-string": "6.8.3",
     "ramda": "0.26.1",
     "uuid": "3.3.3",
-    "react-native-webview": "7.0.5"
+    "react-native-webview": "*"
   },
   "devDependencies": {
     "@types/jest": "24.0.17",
