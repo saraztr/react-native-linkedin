@@ -123,9 +123,24 @@ export default class AppContainer extends React.Component {
 
 **YES**
 
+### How to logout react-native-linkedin?
+```tsx
+<View style={styles.container}>
+    <LinkedInModal
+      ref={this.linkedRef}
+      clientID="[ Your client id from https://www.linkedin.com/developer/apps ]"
+      clientSecret="[ Your client secret from https://www.linkedin.com/developer/apps ]"
+      redirectUri="[ Your redirect uri set into https://www.linkedin.com/developer/apps ]"
+      onSuccess={token => console.log(token)}
+    />
+    <Button title="Log Out" onPress={this.linkedRef.current.logoutAsync()} />
+</View>
+```
+
+
 ## Other questions
 
-Feel free to [contact me](mailto:contact@xaviercarpentier.com) or [create an issue](https://github.com/xcarpentier/react-native-linkedin/issues/new)
+Feel free to [contact me](mailto:xcapetir@gmail.com) or [create an issue](https://github.com/xcarpentier/react-native-linkedin/issues/new)
 
 ## Alternatives
 
